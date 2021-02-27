@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Snake from './Snake';
 import Food from './Food';
+import PreModalPopUp from './preModalPopUp'
 
 const getRandomCoordinates = () => {
   let min = 1;
@@ -17,16 +18,24 @@ const initialState = {
   snakeDots: [
     [0,0],
     [2,0]
-  ]
+  ],
+  isShow: false
 }
 
 class App extends Component {
 
   state = initialState;
+  appProps = {
+    snakeDotsLength: this.state.snakeDots.length,
+    isShow: true
+  }
 
   componentDidMount() {
     setInterval(this.moveSnake, this.state.speed);
     document.onkeydown = this.onKeyDown;
+    if (localStorage.getItem('snakeGameLength')) {
+      localStorage.removeItem('snakeGameLength');
+    }
   }
 
   componentDidUpdate() {
@@ -125,17 +134,62 @@ class App extends Component {
   }
 
   onGameOver() {
-    alert(`Game Over. Snake length is ${this.state.snakeDots.length}`);
-    this.setState(initialState)
+
+    this.appProps.snakeDotsLength = this.state.snakeDots.length;
+
+    this.setState({
+      food: getRandomCoordinates(),
+      speed: 200,
+      direction: 'RIGHT',
+      snakeDots: [
+        [0,0],
+        [2,0]
+      ],
+      isShow: !this.state.isShow
+    })
+
+    // debugger
+    if(!localStorage.getItem('snakeGameLength')) {
+      localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
+    }
+    if (localStorage.getItem('snakeGameLength')) {
+      if (this.state.snakeDots.length > localStorage.getItem('snakeGameLength')) {
+        localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
+      }
+    }
   }
 
   render() {
-    return (
-      <div className="game-area">
-        <Snake snakeDots={this.state.snakeDots}/>
-        <Food dot={this.state.food}/>
-      </div>
-    );
+    // debugger
+    if (this.state.isShow) {
+      return (
+        <div className='wrapper'>
+            <div className="popUp">
+              <PreModalPopUp appProps={this.appProps} />
+            </div>
+          </div>
+      );
+    } else {
+      return (
+        <div className='wrapper'>
+          <div className="game-area">
+            <Snake snakeDots={this.state.snakeDots}/>
+            <Food dot={this.state.food}/>
+          </div>
+        </div>
+      );
+    }
+    // return (
+    //   <div className='wrapper'>
+    //     <div className="popUp">
+    //       {this.state.isShow ? <PreModalPopUp appProps={this.appProps} /> : null}
+    //     </div>
+    //     <div className="game-area">
+    //       <Snake snakeDots={this.state.snakeDots}/>
+    //       <Food dot={this.state.food}/>
+    //     </div>
+    //   </div>
+    // );
   }
 }
 
