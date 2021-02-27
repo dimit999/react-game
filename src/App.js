@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Snake from './Snake';
 import Food from './Food';
 import PreModalPopUp from './preModalPopUp'
+import SoundButtons from './soundButtons'
 
 const getRandomCoordinates = () => {
   let min = 1;
@@ -170,13 +171,14 @@ class App extends Component {
       return (
         <div className="popUp">
           <PreModalPopUp {...this.propsAdditional}  handleToUpdate = {this.handleToUpdate} />
+          <SoundButtons {...this.propsAdditional} />
         </div>
       );
     } else {
       return (
         <div className='wrapper'>
           <div className="sound-buttons">
-            <button id="playPauseButton"></button>
+            <SoundButtons {...this.propsAdditional} />
           </div>
           <div className="game-area">
             <Snake snakeDots={this.state.snakeDots}/>
