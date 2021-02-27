@@ -142,29 +142,27 @@ class App extends Component {
   }
 
   onGameOver() {
+    this.propsAdditional.snakeDotsLength = this.state.snakeDots.length;
 
-    // this.propsAdditional.snakeDotsLength = this.state.snakeDots.length;
+    this.setState({
+      food: getRandomCoordinates(),
+      speed: 200,
+      direction: 'RIGHT',
+      snakeDots: [
+        [0,0],
+        [2,0]
+      ],
+    })
+    this.propsAdditional.isOpen = true
 
-    // this.setState({
-    //   food: getRandomCoordinates(),
-    //   speed: 200,
-    //   direction: 'RIGHT',
-    //   snakeDots: [
-    //     [0,0],
-    //     [2,0]
-    //   ],
-    //   // isOpen: !this.isOpen
-    // })
-    // this.propsAdditional.isOpen = true
-
-    // if(!localStorage.getItem('snakeGameLength')) {
-    //   localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
-    // }
-    // if (localStorage.getItem('snakeGameLength')) {
-    //   if (this.state.snakeDots.length > localStorage.getItem('snakeGameLength')) {
-    //     localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
-    //   }
-    // }
+    if(!localStorage.getItem('snakeGameLength')) {
+      localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
+    }
+    if (localStorage.getItem('snakeGameLength')) {
+      if (this.state.snakeDots.length > localStorage.getItem('snakeGameLength')) {
+        localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
+      }
+    }
   }
 
   render() {
