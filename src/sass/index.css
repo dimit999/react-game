@@ -45,4 +45,18 @@
   height: 200px;
 }
 
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+button#playPauseButton {
+  background: url(https://image.flaticon.com/icons/svg/148/148744.svg) no-repeat;
+  width: 10%;
+  height: 100px;
+  display: block;
+  margin: auto;
+}
+
 /*# sourceMappingURL=index.css.map */
