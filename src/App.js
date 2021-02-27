@@ -19,15 +19,23 @@ const initialState = {
     [0,0],
     [2,0]
   ],
-  isShow: false
+  isOpen: false
 }
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+  }
+
   state = initialState;
-  appProps = {
+  propsAdditional = {
     snakeDotsLength: this.state.snakeDots.length,
-    isShow: true
+    isOpen: false,
+  }
+
+  handleToUpdate = () => {
+    this.propsAdditional.isOpen = false;
   }
 
   componentDidMount() {
@@ -135,7 +143,7 @@ class App extends Component {
 
   onGameOver() {
 
-    this.appProps.snakeDotsLength = this.state.snakeDots.length;
+    this.propsAdditional.snakeDotsLength = this.state.snakeDots.length;
 
     this.setState({
       food: getRandomCoordinates(),
@@ -145,10 +153,10 @@ class App extends Component {
         [0,0],
         [2,0]
       ],
-      isShow: !this.state.isShow
+      // isOpen: !this.isOpen
     })
+    this.propsAdditional.isOpen = true
 
-    // debugger
     if(!localStorage.getItem('snakeGameLength')) {
       localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
     }
@@ -160,14 +168,11 @@ class App extends Component {
   }
 
   render() {
-    // debugger
-    if (this.state.isShow) {
+    if (this.propsAdditional.isOpen) {
       return (
-        <div className='wrapper'>
-            <div className="popUp">
-              <PreModalPopUp appProps={this.appProps} />
-            </div>
-          </div>
+        <div className="popUp">
+          <PreModalPopUp {...this.propsAdditional}  handleToUpdate = {this.handleToUpdate} />
+        </div>
       );
     } else {
       return (
@@ -179,17 +184,6 @@ class App extends Component {
         </div>
       );
     }
-    // return (
-    //   <div className='wrapper'>
-    //     <div className="popUp">
-    //       {this.state.isShow ? <PreModalPopUp appProps={this.appProps} /> : null}
-    //     </div>
-    //     <div className="game-area">
-    //       <Snake snakeDots={this.state.snakeDots}/>
-    //       <Food dot={this.state.food}/>
-    //     </div>
-    //   </div>
-    // );
   }
 }
 
