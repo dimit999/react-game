@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Text } from 'react'
 
 export default class PreModalPopUp extends React.Component {
 
@@ -6,10 +6,12 @@ export default class PreModalPopUp extends React.Component {
     return (
       <div className='modal'>
         <div className='modal-body'>
-          <h1>Game Over.</h1>
-          <p className="snakeLengthPopUp">Snake length is {this.props.snakeDotsLength}.</p>
-          <p className="bestResult">THE BEST result is {localStorage.getItem('snakeGameLength')}.</p>
-          <button onClick={() => this.props.handleToUpdate()}>Close pop-up</button>
+          <h1 className="title-pop-up">Game Over</h1>
+          <p className="snakeLengthPopUp">Snake length is <strong>{this.props.snakeDotsLength}</strong>.</p>
+          <div className="bestResult">The best result is <strong>{localStorage.getItem('snakeGameLength')}</strong>.</div>
+          <div className="close-btn-container">
+            <button className="closePopUp" onClick={() => this.props.handleToUpdate()}>Close pop-up</button>
+          </div>
         </div>
       </div>
     )
