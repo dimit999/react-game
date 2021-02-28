@@ -1,7 +1,7 @@
 /* Components */
 .game-area {
   position: relative;
-  margin: 50px auto;
+  margin: auto;
   width: 600px;
   height: 600px;
   border: 2px solid #000;
@@ -23,6 +23,13 @@
   background: red;
   border: 1px solid #fff;
   z-index: 1;
+}
+
+.mainPlace {
+  background: url("../assets/snake.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
 .modal {
@@ -55,8 +62,12 @@ button#playPauseButton {
   background: url(https://image.flaticon.com/icons/svg/148/148744.svg) no-repeat;
   width: 10%;
   height: 100px;
-  display: block;
-  margin: auto;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.sound-buttons {
+  margin-bottom: 10px;
 }
 
 /*# sourceMappingURL=index.css.map */
