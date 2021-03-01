@@ -1,4 +1,4 @@
-import React, { Text } from 'react'
+import React from 'react'
 
 export default class PreModalPopUp extends React.Component {
 
