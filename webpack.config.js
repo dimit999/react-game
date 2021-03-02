@@ -35,6 +35,13 @@ module.exports = {
           to: path.resolve(__dirname, 'dist/assets'),
         },
       ],
+      // Audio
+      patterns: [
+        {
+          from: path.resolve(__dirname, './src/audio'),
+          to: path.resolve(__dirname, 'dist/audio'),
+        },
+      ],
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, './src/index.html'),
@@ -68,6 +75,10 @@ module.exports = {
         test: /\.(scss|css)$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
       },
+      {
+        test: /\.(mp3|wav|mpe?g|ogg)?$/i,
+        use: 'file-loader'
+      }
     ],
   },
 };

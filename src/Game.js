@@ -23,6 +23,7 @@ const initialState = {
   isOpen: false
 }
 
+let audio = new Audio();
 class Game extends React.Component {
 
   constructor(props) {
@@ -33,10 +34,12 @@ class Game extends React.Component {
   propsAdditional = {
     snakeDotsLength: this.state.snakeDots.length,
     isOpen: false,
+    errorVal: 0,
   }
 
   handleToUpdate = () => {
     this.propsAdditional.isOpen = false;
+    this.propsAdditional.errorVal = 0;
     this.setState({
       food: getRandomCoordinates(),
       speed: 200,
@@ -49,6 +52,7 @@ class Game extends React.Component {
   }
 
   refreshPage = () => {
+    this.propsAdditional.errorVal = 0;
     location.reload();
   }
 
@@ -136,6 +140,8 @@ class Game extends React.Component {
       })
       this.enlargeSnake();
       this.increaseSpeed();
+      audio.src = "./audio/pass.wav";
+      audio.play()
     }
   }
 
@@ -156,8 +162,14 @@ class Game extends React.Component {
   }
 
   onGameOver() {
+    this.propsAdditional.errorVal++
     this.propsAdditional.snakeDotsLength = this.state.snakeDots.length;
     this.propsAdditional.isOpen = true
+
+    if (this.propsAdditional.errorVal === 1) {
+      audio.src = "./audio/error.wav";
+      audio.play()
+    }
 
     if(!localStorage.getItem('snakeGameLength')) {
       localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
