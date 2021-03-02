@@ -1,0 +1,295 @@
+/* Components */
+.game-area {
+  position: relative;
+  margin: auto;
+  width: 400px;
+  height: 400px;
+  border: 2px solid #000;
+}
+
+.snake-dot {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  background-color: #000;
+  border: 1px solid #fff;
+  z-index: 2;
+}
+
+.snake-food {
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  background: red;
+  border: 1px solid #fff;
+  z-index: 1;
+}
+
+.mainPlace {
+  background: url("../assets/snake.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  padding-top: 5rem;
+}
+
+.modal-body, .start-modal-body {
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.modal-body {
+  width: 400px;
+  height: 200px;
+}
+
+.start-modal-body {
+  width: 400px;
+  height: 300px;
+}
+
+.modal-body {
+  background: #fff;
+}
+
+.start-modal-body {
+  background: #f5eecf;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 5px 5px #302d22;
+}
+
+.startGameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startGame, .showBestResult {
+  background: #e4b621;
+  display: block;
+  position: relative;
+  float: left;
+  padding: 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  margin: 10px 20px 20px 20px;
+  border-radius: 5px;
+  transition: all 0.2s;
+  box-shadow: 5px 5px 0px 0px #726831;
+}
+
+.startGame {
+  width: 120px;
+  color: #FFF;
+  font-size: large;
+  font-weight: 900;
+}
+
+.showBestResult {
+  width: 200px;
+  color: #FFF;
+  font-size: large;
+  font-weight: 900;
+}
+
+.startGame:active, .showBestResult:active {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 0px 0px #007144;
+}
+
+.startGame:hover, .showBestResult:hover {
+  background: #ddaa4b;
+}
+
+.keyboardImg {
+  margin-top: 8px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+button#playPauseButton {
+  background: url(https://image.flaticon.com/icons/svg/148/148744.svg) no-repeat;
+  width: 10%;
+  height: 100px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.title-pop-up {
+  color: red;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.close-btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bestResult {
+  font-size: 24px;
+}
+
+.closePopUp, .finishGame {
+  display: block;
+  position: relative;
+  float: left;
+  width: 120px;
+  padding: 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  color: #FFF;
+  border-radius: 5px;
+  margin: 10px 20px 20px 20px;
+  transition: all 0.2s;
+  box-shadow: 5px 5px 0px 0px #01472b;
+}
+
+.closePopUp {
+  background: #00AE68;
+}
+
+.finishGame {
+  background: #cab70a;
+}
+
+.closePopUp:active, .finishGame:active {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 0px 0px #01472b;
+}
+
+.closePopUp:hover {
+  background: #1d8559;
+}
+
+.finishGame:hover {
+  background: #80740b;
+}
+
+.sound-buttons {
+  margin-bottom: 10px;
+}
+
+/* height */
+/* width */
+/* toggle dimensions */
+/* font size */
+/* toggle's border thickness */
+/* toggle box shadow */
+/* labels animation time */
+/* label text color */
+/* colors: si, ?, no*/
+.wrapper {
+  width: 12rem;
+  height: 4rem;
+  position: relative;
+  margin: 2rem auto;
+  border-radius: 2rem;
+  background: gray;
+}
+.wrapper .toggle {
+  width: 4.8rem;
+  height: 4.8rem;
+  position: absolute;
+  left: 3.6rem;
+  top: -0.4rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 0.1rem solid #ff6c00;
+  background: #ff8933;
+  box-shadow: 0 0 0.2rem 0.1rem #ff6c00 inset, 0 0 0.2rem 0.1rem #ff6c00;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.wrapper label {
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  display: inline-block;
+  text-align: center;
+  line-height: 4rem;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  -webkit-animation: 6s rot-label ease-in-out infinite;
+  -moz-animation: 6s rot-label ease-in-out infinite;
+  -o-animation: 6s rot-label ease-in-out infinite;
+  animation: 6s rot-label ease-in-out infinite;
+}
+.wrapper input {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+#s:checked {
+  background: red;
+}
+#s:checked ~ .toggle {
+  border: 0.1rem solid #008000;
+  background: #00b300;
+  box-shadow: 0 0 0.2rem 0.1rem #008000 inset, 0 0 0.2rem 0.1rem #008000;
+  left: -0.4rem;
+}
+
+#l:checked {
+  background: red;
+}
+#l:checked ~ .toggle {
+  border: 0.1rem solid #ff0000;
+  background: #ff3333;
+  box-shadow: 0 0 0.2rem 0.1rem #ff0000 inset, 0 0 0.2rem 0.1rem #ff0000;
+  left: 7.6rem;
+}
+
+#m, #maybe-lbl {
+  left: 33.3333333333%;
+}
+
+#l, #no-lbl {
+  left: 66.6666666667%;
+}
+
+#maybe-lbl {
+  -webkit-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
+#no-lbl {
+  -webkit-animation-delay: 4s;
+  -o-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+/*# sourceMappingURL=index.css.map */

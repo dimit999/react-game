@@ -1,0 +1,71 @@
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+button#playPauseButton{	background:url(https://image.flaticon.com/icons/svg/148/148744.svg) no-repeat;
+	width: 10%;
+	height: 100px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+
+.title-pop-up {
+  color: red;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.close-btn-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bestResult {
+  font-size: 24px;
+}
+
+.closePopUp, .finishGame {
+  display: block;
+  position: relative;
+  float: left;
+  width: 120px;
+  padding: 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  color: #FFF;
+  border-radius: 5px;
+  margin: 10px 20px 20px 20px;
+  transition: all 0.2s ;
+  box-shadow: 5px 5px 0px 0px #01472b;
+}
+
+.closePopUp {
+  background: #00AE68;
+}
+
+.finishGame {
+  background: #cab70a;
+}
+
+.closePopUp:active, .finishGame:active {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 0px 0px #01472b;
+}
+
+.closePopUp:hover {
+  background: rgb(29, 133, 89);
+}
+
+.finishGame:hover {
+  background: #80740b;
+}
+
+.sound-buttons {
+  margin-bottom: 10px;
+}
