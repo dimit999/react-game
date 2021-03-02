@@ -34,9 +34,6 @@ module.exports = {
           from: path.resolve(__dirname, './src/assets'),
           to: path.resolve(__dirname, 'dist/assets'),
         },
-      ],
-      // Audio
-      patterns: [
         {
           from: path.resolve(__dirname, './src/audio'),
           to: path.resolve(__dirname, 'dist/audio'),

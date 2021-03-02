@@ -20,7 +20,7 @@ const initialState = {
     [0,0],
     [2,0]
   ],
-  isOpen: false
+  isOpen: false,
 }
 
 let audio = new Audio();
@@ -36,6 +36,14 @@ class Game extends React.Component {
     isOpen: false,
     errorVal: 0,
   }
+
+  handleSizeChange = () => {
+    let size = this.props.gameSize
+    if (document.querySelector('.game-area') !== null) {
+      document.querySelector('.game-area').style.width = `${size[0]}px`
+      document.querySelector('.game-area').style.height = `${size[1]}px`
+    }
+}
 
   handleToUpdate = () => {
     this.propsAdditional.isOpen = false;
@@ -162,26 +170,27 @@ class Game extends React.Component {
   }
 
   onGameOver() {
-    this.propsAdditional.errorVal++
-    this.propsAdditional.snakeDotsLength = this.state.snakeDots.length;
-    this.propsAdditional.isOpen = true
+    // this.propsAdditional.errorVal++
+    // this.propsAdditional.snakeDotsLength = this.state.snakeDots.length;
+    // this.propsAdditional.isOpen = true
 
-    if (this.propsAdditional.errorVal === 1) {
-      audio.src = "./audio/error.wav";
-      audio.play()
-    }
+    // if (this.propsAdditional.errorVal === 1) {
+    //   audio.src = "./audio/error.wav";
+    //   audio.play()
+    // }
 
-    if(!localStorage.getItem('snakeGameLength')) {
-      localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
-    }
-    if (localStorage.getItem('snakeGameLength')) {
-      if (this.state.snakeDots.length > localStorage.getItem('snakeGameLength')) {
-        localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
-      }
-    }
+    // if(!localStorage.getItem('snakeGameLength')) {
+    //   localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
+    // }
+    // if (localStorage.getItem('snakeGameLength')) {
+    //   if (this.state.snakeDots.length > localStorage.getItem('snakeGameLength')) {
+    //     localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
+    //   }
+    // }
   }
 
   render() {
+    this.handleSizeChange()
     if (this.propsAdditional.isOpen) {
       return (
         <div className="popUp">
@@ -191,7 +200,7 @@ class Game extends React.Component {
       );
     } else {
       return (
-        <div className='wrapper'>
+        <div className='wrapper-sound'>
           <div className="sound-buttons">
             <SoundButtons {...this.propsAdditional} />
           </div>

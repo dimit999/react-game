@@ -12,9 +12,16 @@
 
 .modal-body, .start-modal-body {
   padding: 2rem;
-  width: 400px;
   border-radius: 5px;
+}
+
+.modal-body {
+  width: 400px;
   height: 200px;
+}
+.start-modal-body {
+  width: 400px;
+  height: 300px;
 }
 
 .modal-body {
@@ -69,4 +76,8 @@
 
 .startGame:hover, .showBestResult:hover {
   background: rgb(221, 170, 75);
+}
+
+.keyboardImg {
+  margin-top: 8px;
 }
