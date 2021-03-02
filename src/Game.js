@@ -1,7 +1,7 @@
 import React from 'react';
 import Snake from './Snake';
 import Food from './Food';
-import PreModalPopUp from './PreModalPopUp'
+import FinishGame from './FinishGame'
 import SoundButtons from './soundButtons'
 
 const getRandomCoordinates = () => {
@@ -46,6 +46,10 @@ class Game extends React.Component {
         [2,0]
       ],
     })
+  }
+
+  refreshPage = () => {
+    location.reload();
   }
 
   componentDidMount() {
@@ -169,7 +173,7 @@ class Game extends React.Component {
     if (this.propsAdditional.isOpen) {
       return (
         <div className="popUp">
-          <PreModalPopUp {...this.propsAdditional}  handleToUpdate = {this.handleToUpdate} />
+          <FinishGame {...this.propsAdditional}  handleToUpdate = {this.handleToUpdate} refresh = {this.refreshPage}/>
           <SoundButtons {...this.propsAdditional} />
         </div>
       );
