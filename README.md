@@ -1,11 +1,10 @@
 # dimit999-REACT2021Q1
-Private repository for @dimit999
-
-# rsclone
+Public repository for @dimit999
 
 ⚙️to download application use
 
 > git clone https://github.com/rolling-scopes-school/dimit999-REACT2021Q1.git
+switch to react-game repo
 
 ⚙️and install dependencies
 
@@ -13,16 +12,7 @@ Private repository for @dimit999
 
 ⚙️to start application on dev mode write command
 
-> npm run watch
+> npm run start
 
-⚙️and open application at port **4004** (http://localhost:4004)
-
-⚙️to start application on prodaction mode write commands
-
-> npm run prod
-
-> npm run startexp
-
-⚙️and open application at port **4004** (http://localhost:4004)
 
 
