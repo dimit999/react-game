@@ -170,23 +170,23 @@ class Game extends React.Component {
   }
 
   onGameOver() {
-    // this.propsAdditional.errorVal++
-    // this.propsAdditional.snakeDotsLength = this.state.snakeDots.length;
-    // this.propsAdditional.isOpen = true
+    this.propsAdditional.errorVal++
+    this.propsAdditional.snakeDotsLength = this.state.snakeDots.length;
+    this.propsAdditional.isOpen = true
 
-    // if (this.propsAdditional.errorVal === 1) {
-    //   audio.src = "./audio/error.wav";
-    //   audio.play()
-    // }
+    if (this.propsAdditional.errorVal === 1) {
+      audio.src = "./audio/error.wav";
+      audio.play()
+    }
 
-    // if(!localStorage.getItem('snakeGameLength')) {
-    //   localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
-    // }
-    // if (localStorage.getItem('snakeGameLength')) {
-    //   if (this.state.snakeDots.length > localStorage.getItem('snakeGameLength')) {
-    //     localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
-    //   }
-    // }
+    if(!localStorage.getItem('snakeGameLength')) {
+      localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
+    }
+    if (localStorage.getItem('snakeGameLength')) {
+      if (this.state.snakeDots.length > localStorage.getItem('snakeGameLength')) {
+        localStorage.setItem('snakeGameLength', this.state.snakeDots.length);
+      }
+    }
   }
 
   render() {
