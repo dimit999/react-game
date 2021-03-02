@@ -44,12 +44,63 @@
   padding-top: 5rem;
 }
 
-.modal-body {
+.modal-body, .start-modal-body {
   padding: 2rem;
   width: 400px;
   border-radius: 5px;
-  background: #fff;
   height: 200px;
+}
+
+.modal-body {
+  background: #fff;
+}
+
+.start-modal-body {
+  background: #f5eecf;
+}
+
+.startGameContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startGame, .showBestResult {
+  background: #e4b621;
+  display: block;
+  position: relative;
+  float: left;
+  width: 120px;
+  padding: 0;
+  font-weight: 600;
+  text-align: center;
+  line-height: 50px;
+  margin: 10px 20px 20px 20px;
+  border-radius: 5px;
+  transition: all 0.2s;
+  box-shadow: 0px 5px 0px 0px #726831;
+}
+
+.startGame {
+  color: #9e5400;
+  -webkit-text-stroke: 0.07em rgba(0, 0, 0, 0.5);
+  font-weight: 900;
+}
+
+.showBestResult {
+  color: #5f5a0d;
+  font-weight: 900;
+  -webkit-text-stroke: 0.07em rgba(0, 0, 0, 0.5);
+}
+
+.startGame:active, .showBestResult:active {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 0px 0px #007144;
+}
+
+.startGame:hover, .showBestResult:hover {
+  background: #ddaa4b;
 }
 
 button {
