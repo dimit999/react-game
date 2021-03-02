@@ -57,6 +57,8 @@
 
 .start-modal-body {
   background: #f5eecf;
+  border-radius: 20px 20px 20px 20px;
+  box-shadow: 5px 5px #302d22;
 }
 
 .startGameContainer {
@@ -78,7 +80,7 @@
   margin: 10px 20px 20px 20px;
   border-radius: 5px;
   transition: all 0.2s;
-  box-shadow: 0px 5px 0px 0px #726831;
+  box-shadow: 5px 5px 0px 0px #726831;
 }
 
 .startGame {
