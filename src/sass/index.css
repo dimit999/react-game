@@ -2,8 +2,8 @@
 .game-area {
   position: relative;
   margin: auto;
-  width: 600px;
-  height: 600px;
+  width: 450px;
+  height: 450px;
   border: 2px solid #000;
 }
 
@@ -72,7 +72,6 @@
   display: block;
   position: relative;
   float: left;
-  width: 120px;
   padding: 0;
   font-weight: 600;
   text-align: center;
@@ -84,15 +83,17 @@
 }
 
 .startGame {
-  color: #9e5400;
-  -webkit-text-stroke: 0.07em rgba(0, 0, 0, 0.5);
+  width: 120px;
+  color: #FFF;
+  font-size: large;
   font-weight: 900;
 }
 
 .showBestResult {
-  color: #5f5a0d;
+  width: 200px;
+  color: #FFF;
+  font-size: large;
   font-weight: 900;
-  -webkit-text-stroke: 0.07em rgba(0, 0, 0, 0.5);
 }
 
 .startGame:active, .showBestResult:active {
