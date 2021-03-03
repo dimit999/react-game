@@ -47,7 +47,8 @@
 }
 
 .modal-body {
-  background: #fff;
+  background: rgb(255, 254, 187);
+  box-shadow: 5px 10px 10px 5px rgb(48, 45, 34);;
 }
 .start-modal-body {
   background: rgb(245, 238, 207);
@@ -102,4 +103,8 @@
 
 .keyboardImg {
   margin-top: 8px;
+}
+
+.bestResult, .snakeLengthPopUp {
+  -webkit-text-stroke: 1px green;
 }

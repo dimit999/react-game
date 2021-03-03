@@ -106,7 +106,8 @@
 }
 
 .modal-body {
-  background: #fff;
+  background: #fffebb;
+  box-shadow: 5px 10px 10px 5px #302d22;
 }
 
 .start-modal-body {
@@ -162,6 +163,10 @@
 
 .keyboardImg {
   margin-top: 8px;
+}
+
+.bestResult, .snakeLengthPopUp {
+  -webkit-text-stroke: 1px green;
 }
 
 button {
