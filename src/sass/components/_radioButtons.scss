@@ -39,7 +39,7 @@ $colors: #008000, #ff6c00, #ff0000;
   animation: $time rot-label ease-in-out infinite;
 }
 
-.wrapper {
+.wrapperSize {
   width: $w;
   height: $h;
   position: relative;
@@ -48,7 +48,61 @@ $colors: #008000, #ff6c00, #ff0000;
   background: gray;
 
 
-  & .toggle {
+  & .toggleSize {
+    width: $tw;
+    height: $tw;
+    position: absolute;
+    left: $w / 3 - ($tw - $h) / 2;
+    top: -($tw - $h) / 2;
+    border-radius: 50%;
+    box-sizing: border-box;
+    @include borderColor(2);
+
+    transition:
+        all .3s cubic-bezier(
+          0.175, 0.885, 0.320, 1.275
+        );
+  }
+
+  & label {
+    cursor: pointer;
+    width: $h;
+    height: $h;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    z-index: 1;
+    display: inline-block;
+
+    text-align: center;
+    line-height: $h;
+    text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
+    font-size: $fs;
+    font-weight: bold;
+    color: $text-color;
+    @include animation($ta);
+  }
+
+  & input {
+    position: absolute;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+  }
+}
+
+.wrapperDot {
+  width: $w;
+  height: $h;
+  position: relative;
+  margin: 2rem auto;
+  border-radius: $h/2;
+  background: gray;
+
+
+  & .toggleDot {
     width: $tw;
     height: $tw;
     position: absolute;
@@ -96,7 +150,16 @@ $colors: #008000, #ff6c00, #ff0000;
 #s:checked {
   background: red;
 
-  ~ .toggle {
+  ~ .toggleSize {
+    @include borderColor(1);
+    left: -($tw - $h) / 2;
+  }
+}
+
+#dot1:checked {
+  background: red;
+
+  ~ .toggleDot {
     @include borderColor(1);
     left: -($tw - $h) / 2;
   }
@@ -105,7 +168,16 @@ $colors: #008000, #ff6c00, #ff0000;
 #l:checked {
   background: red;
 
-  ~ .toggle {
+  ~ .toggleSize {
+    @include borderColor(3);
+    left: $w * 2 / 3 - ($tw - $h) / 2;
+  }
+}
+
+#dot3:checked {
+  background: red;
+
+  ~ .toggleDot {
     @include borderColor(3);
     left: $w * 2 / 3 - ($tw - $h) / 2;
   }
@@ -115,7 +187,15 @@ $colors: #008000, #ff6c00, #ff0000;
   left: 100% * 1 / 3;
 }
 
+#dot2, #maybe-lbl-dot{
+  left: 100% * 1 / 3;
+}
+
 #l, #no-lbl {
+  left: 100% * 2 / 3;
+}
+
+#dot3, #no-lbl-dot {
   left: 100% * 2 / 3;
 }
 
@@ -123,6 +203,14 @@ $colors: #008000, #ff6c00, #ff0000;
   @include animationDelay($ta / 3);
 }
 
+#maybe-lbl-dot {
+  @include animationDelay($ta / 3);
+}
+
 #no-lbl {
+  @include animationDelay($ta * 2 / 3);
+}
+
+#no-lbl-dot {
   @include animationDelay($ta * 2 / 3);
 }

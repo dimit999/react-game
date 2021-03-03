@@ -15,11 +15,12 @@
 
 .snake-dot {
   position: absolute;
-  width: 2%;
-  height: 2%;
+  width: 7%;
+  height: 7%;
   background-color: #000;
-  border: 1px solid #fff;
   z-index: 2;
+  background: url("../assets/dot2.svg");
+  background-repeat: no-repeat;
 }
 
 .snake-food {
@@ -71,22 +72,22 @@
 
 @media (min-width: 1200px) {
   .start-modal {
-    margin-bottom: 300px;
+    margin-bottom: 170px;
   }
 }
 @media (min-width: 767px) and (max-width: 1199px) {
   .start-modal {
-    margin-bottom: 200px;
+    margin-bottom: 80px;
   }
 }
 @media (min-width: 374px) and (max-width: 767px) {
   .start-modal {
-    margin-bottom: 200px;
+    margin-bottom: 80px;
   }
 }
 @media (min-width: 319px) and (max-width: 374px) {
   .start-modal {
-    margin-bottom: 200px;
+    margin-bottom: 80px;
   }
 }
 
@@ -102,7 +103,7 @@
 
 .start-modal-body {
   width: 400px;
-  height: 300px;
+  height: 450px;
 }
 
 .modal-body {
@@ -165,7 +166,16 @@
   margin-top: 8px;
 }
 
-.bestResult, .snakeLengthPopUp {
+.result {
+  margin-bottom: 5px;
+}
+
+.sizeTitle, .dotTitle {
+  font-size: 20px;
+  margin-bottom: -17px;
+}
+
+.bestResult, .snakeLengthPopUp, .sizeTitle, .dotTitle {
   -webkit-text-stroke: 1px green;
 }
 
@@ -251,7 +261,7 @@ button#playPauseButton {
 /* labels animation time */
 /* label text color */
 /* colors: si, ?, no*/
-.wrapper {
+.wrapperSize {
   width: 12rem;
   height: 4rem;
   position: relative;
@@ -259,7 +269,7 @@ button#playPauseButton {
   border-radius: 2rem;
   background: gray;
 }
-.wrapper .toggle {
+.wrapperSize .toggleSize {
   width: 4.8rem;
   height: 4.8rem;
   position: absolute;
@@ -272,7 +282,7 @@ button#playPauseButton {
   box-shadow: 0 0 0.2rem 0.1rem #ff6c00 inset, 0 0 0.2rem 0.1rem #ff6c00;
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-.wrapper label {
+.wrapperSize label {
   cursor: pointer;
   width: 4rem;
   height: 4rem;
@@ -293,7 +303,57 @@ button#playPauseButton {
   -o-animation: 6s rot-label ease-in-out infinite;
   animation: 6s rot-label ease-in-out infinite;
 }
-.wrapper input {
+.wrapperSize input {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
+.wrapperDot {
+  width: 12rem;
+  height: 4rem;
+  position: relative;
+  margin: 2rem auto;
+  border-radius: 2rem;
+  background: gray;
+}
+.wrapperDot .toggleDot {
+  width: 4.8rem;
+  height: 4.8rem;
+  position: absolute;
+  left: 3.6rem;
+  top: -0.4rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 0.1rem solid #ff6c00;
+  background: #ff8933;
+  box-shadow: 0 0 0.2rem 0.1rem #ff6c00 inset, 0 0 0.2rem 0.1rem #ff6c00;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.wrapperDot label {
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  display: inline-block;
+  text-align: center;
+  line-height: 4rem;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  -webkit-animation: 6s rot-label ease-in-out infinite;
+  -moz-animation: 6s rot-label ease-in-out infinite;
+  -o-animation: 6s rot-label ease-in-out infinite;
+  animation: 6s rot-label ease-in-out infinite;
+}
+.wrapperDot input {
   position: absolute;
   left: 0;
   margin: 0;
@@ -304,7 +364,17 @@ button#playPauseButton {
 #s:checked {
   background: red;
 }
-#s:checked ~ .toggle {
+#s:checked ~ .toggleSize {
+  border: 0.1rem solid #008000;
+  background: #00b300;
+  box-shadow: 0 0 0.2rem 0.1rem #008000 inset, 0 0 0.2rem 0.1rem #008000;
+  left: -0.4rem;
+}
+
+#dot1:checked {
+  background: red;
+}
+#dot1:checked ~ .toggleDot {
   border: 0.1rem solid #008000;
   background: #00b300;
   box-shadow: 0 0 0.2rem 0.1rem #008000 inset, 0 0 0.2rem 0.1rem #008000;
@@ -314,7 +384,17 @@ button#playPauseButton {
 #l:checked {
   background: red;
 }
-#l:checked ~ .toggle {
+#l:checked ~ .toggleSize {
+  border: 0.1rem solid #ff0000;
+  background: #ff3333;
+  box-shadow: 0 0 0.2rem 0.1rem #ff0000 inset, 0 0 0.2rem 0.1rem #ff0000;
+  left: 7.6rem;
+}
+
+#dot3:checked {
+  background: red;
+}
+#dot3:checked ~ .toggleDot {
   border: 0.1rem solid #ff0000;
   background: #ff3333;
   box-shadow: 0 0 0.2rem 0.1rem #ff0000 inset, 0 0 0.2rem 0.1rem #ff0000;
@@ -325,7 +405,15 @@ button#playPauseButton {
   left: 33.3333333333%;
 }
 
+#dot2, #maybe-lbl-dot {
+  left: 33.3333333333%;
+}
+
 #l, #no-lbl {
+  left: 66.6666666667%;
+}
+
+#dot3, #no-lbl-dot {
   left: 66.6666666667%;
 }
 
@@ -336,7 +424,21 @@ button#playPauseButton {
   animation-delay: 2s;
 }
 
+#maybe-lbl-dot {
+  -webkit-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
 #no-lbl {
+  -webkit-animation-delay: 4s;
+  -o-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+#no-lbl-dot {
   -webkit-animation-delay: 4s;
   -o-animation-delay: 4s;
   -moz-animation-delay: 4s;

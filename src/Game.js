@@ -46,6 +46,26 @@ class Game extends React.Component {
     return size;
   }
 
+  handleDotChange = () => {
+    let dot = this.props.gameDot.length === 0 ? 'Dot2' : this.props.gameDot
+    if (document.querySelector('.snake-dot') !== null) {
+      let dotsList = document.querySelectorAll('.snake-dot')
+      if (dot === 'Dot1') {
+        dotsList.forEach((dot) => {
+          dot.style.backgroundImage = "url('../assets/dot1.svg')";
+        })
+      } else if (dot === 'Dot2') {
+        dotsList.forEach((dot) => {
+          dot.style.backgroundImage = "url('../assets/dot2.svg')";
+        })
+      } else {
+        dotsList.forEach((dot) => {
+          dot.style.backgroundImage = "url('../assets/dot3.svg')";
+        })
+      }
+    }
+  }
+
   handleToUpdate = () => {
     this.propsAdditional.isOpen = false;
     this.propsAdditional.errorVal = 0;
@@ -192,6 +212,7 @@ class Game extends React.Component {
 
   render() {
     let size = this.handleSizeChange()
+    this.handleDotChange()
     if (this.propsAdditional.isOpen) {
       return (
         <div className="popUp">

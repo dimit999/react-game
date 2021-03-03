@@ -8,11 +8,12 @@
 
 .snake-dot {
   position: absolute;
-  width: 2%;
-  height: 2%;
+  width: 7%;
+  height: 7%;
   background-color: #000;
-  border: 1px solid #fff;
   z-index: 2;
+  background: url('../assets/dot2.svg');
+  background-repeat: no-repeat;
 }
 
 .snake-food {
