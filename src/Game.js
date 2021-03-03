@@ -38,12 +38,13 @@ class Game extends React.Component {
   }
 
   handleSizeChange = () => {
-    let size = this.props.gameSize
+    let size = this.props.gameSize.length === 0 ? [400, 400] : this.props.gameSize
     if (document.querySelector('.game-area') !== null) {
       document.querySelector('.game-area').style.width = `${size[0]}px`
       document.querySelector('.game-area').style.height = `${size[1]}px`
     }
-}
+    return size;
+  }
 
   handleToUpdate = () => {
     this.propsAdditional.isOpen = false;
@@ -190,7 +191,7 @@ class Game extends React.Component {
   }
 
   render() {
-    this.handleSizeChange()
+    let size = this.handleSizeChange()
     if (this.propsAdditional.isOpen) {
       return (
         <div className="popUp">
@@ -203,6 +204,9 @@ class Game extends React.Component {
         <div className='wrapper-sound'>
           <div className="sound-buttons">
             <SoundButtons {...this.propsAdditional} />
+          </div>
+          <div className="areaTitleContainer">
+            <h1 className="areaTitle">Game area size: {size[0]}x{size[1]}</h1>
           </div>
           <div className="game-area">
             <Snake snakeDots={this.state.snakeDots}/>
