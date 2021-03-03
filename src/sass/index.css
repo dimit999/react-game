@@ -39,7 +39,6 @@
 }
 
 .modal, .start-modal {
-  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -50,7 +49,29 @@
 }
 
 .modal {
+  position: fixed;
   background: rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1200px) {
+  .start-modal {
+    margin-bottom: 300px;
+  }
+}
+@media (min-width: 767px) and (max-width: 1199px) {
+  .start-modal {
+    margin-bottom: 200px;
+  }
+}
+@media (min-width: 374px) and (max-width: 767px) {
+  .start-modal {
+    margin-bottom: 200px;
+  }
+}
+@media (min-width: 319px) and (max-width: 374px) {
+  .start-modal {
+    margin-bottom: 200px;
+  }
 }
 
 .modal-body, .start-modal-body {
@@ -305,7 +326,7 @@ button#playPauseButton {
   margin-top: 20px;
   margin-bottom: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 .footer__wrapper {

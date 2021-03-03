@@ -1,5 +1,4 @@
 .modal, .start-modal {
-  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -10,7 +9,26 @@
 }
 
 .modal {
+  position: fixed;
   background: rgba(0, 0, 0, 0.5);
+}
+
+.start-modal {
+  @include media-laptop  {
+    margin-bottom: 300px;
+  }
+
+  @include media-tablet {
+    margin-bottom: 200px;
+  }
+
+  @include media-mobileMiddle {
+    margin-bottom: 200px;
+  }
+
+  @include media-preMobileSmall {
+    margin-bottom: 200px;
+  }
 }
 
 
