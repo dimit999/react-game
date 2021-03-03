@@ -15,6 +15,7 @@ export default class App extends React.Component {
     this._showBestResult = this._showBestResult.bind(this);
     this._setSize = this._setSize.bind(this);
     this._setDot = this._setDot.bind(this);
+    this._setBackground = this._setBackground.bind(this);
   }
 
   propsRadioButtons = {
@@ -70,6 +71,17 @@ export default class App extends React.Component {
     this.propsRadioButtons.gameDot = stateDot;
   }
 
+  _setBackground(target) {
+    let backId = target.currentTarget.id
+    if (backId === 'back1') {
+      document.querySelector('.mainPlace').style.backgroundImage = "url('../assets/back2.png')";
+    } else if (backId === 'back3') {
+      document.querySelector('.mainPlace').style.backgroundImage = "url('../assets/back3.jpg')";
+    } else {
+      document.querySelector('.mainPlace').style.backgroundImage = "url('../assets/snake.jpg')";
+    }
+  }
+
 render() {
   return (
     this.state.showComponent ?
@@ -95,6 +107,13 @@ render() {
                   <label className="radioDot" htmlFor="dot2" id="maybe-lbl-dot"><img className="keyboardImg" src="./assets/dot2.svg" alt="Dot2" width="50" height="50"></img></label><input type="radio" value="" name="drone" id="dot2" defaultChecked="checked" onClick={this._setDot}/>
                   <label className="radioDot" htmlFor="dot3" id="no-lbl-dot"><img className="keyboardImg" src="./assets/dot3.svg" alt="Dot3" width="50" height="50"></img></label><input type="radio" value="" name="drone" id="dot3" onClick={this._setDot}/>
                   <div className="toggleDot"></div>
+                </div>
+                <div className="backTitle">Background design:</div>
+                <div className="wrapperBack">
+                  <label className="radioBack" htmlFor="back1" id="yes-lbl-back">1</label><input type="radio" value="" name="contact" id="back1" onClick={this._setBackground}/>
+                  <label className="radioBack" htmlFor="back2" id="maybe-lbl-back">2</label><input type="radio" value="" name="contact" id="back2" defaultChecked="checked" onClick={this._setBackground}/>
+                  <label className="radioBack" htmlFor="back3" id="no-lbl-back">3</label><input type="radio" value="" name="contact" id="back3" onClick={this._setBackground}/>
+                  <div className="toggleBack"></div>
                 </div>
                 <button className="showBestResult" onClick={this._showBestResult}>Show best result</button>
                 {this.state.showBestResult && localStorage.getItem('snakeGameLength') != null && (

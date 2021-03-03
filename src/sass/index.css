@@ -62,7 +62,14 @@
   left: 0;
   display: flex;
   justify-content: center;
+}
+
+.modal {
   padding-top: 5rem;
+}
+
+.start-modal {
+  padding-top: 2rem;
 }
 
 .modal {
@@ -72,22 +79,22 @@
 
 @media (min-width: 1200px) {
   .start-modal {
-    margin-bottom: 170px;
+    margin-bottom: 90px;
   }
 }
 @media (min-width: 767px) and (max-width: 1199px) {
   .start-modal {
-    margin-bottom: 80px;
+    margin-bottom: 20px;
   }
 }
 @media (min-width: 374px) and (max-width: 767px) {
   .start-modal {
-    margin-bottom: 80px;
+    margin-bottom: 20px;
   }
 }
 @media (min-width: 319px) and (max-width: 374px) {
   .start-modal {
-    margin-bottom: 80px;
+    margin-bottom: 20px;
   }
 }
 
@@ -103,7 +110,7 @@
 
 .start-modal-body {
   width: 400px;
-  height: 450px;
+  height: 580px;
 }
 
 .modal-body {
@@ -170,13 +177,17 @@
   margin-bottom: 5px;
 }
 
-.sizeTitle, .dotTitle {
+.sizeTitle, .dotTitle, .backTitle {
   font-size: 20px;
   margin-bottom: -17px;
 }
 
-.bestResult, .snakeLengthPopUp, .sizeTitle, .dotTitle {
+.snakeLengthPopUp, .sizeTitle, .dotTitle, .backTitle {
   -webkit-text-stroke: 1px green;
+}
+
+.bestResult {
+  -webkit-text-stroke: 1px blue;
 }
 
 button {
@@ -361,6 +372,56 @@ button#playPauseButton {
   opacity: 0;
 }
 
+.wrapperBack {
+  width: 12rem;
+  height: 4rem;
+  position: relative;
+  margin: 2rem auto;
+  border-radius: 2rem;
+  background: gray;
+}
+.wrapperBack .toggleBack {
+  width: 4.8rem;
+  height: 4.8rem;
+  position: absolute;
+  left: 3.6rem;
+  top: -0.4rem;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 0.1rem solid #ff6c00;
+  background: #ff8933;
+  box-shadow: 0 0 0.2rem 0.1rem #ff6c00 inset, 0 0 0.2rem 0.1rem #ff6c00;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.wrapperBack label {
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+  display: inline-block;
+  text-align: center;
+  line-height: 4rem;
+  text-transform: uppercase;
+  font-family: "Lato", sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  -webkit-animation: 6s rot-label ease-in-out infinite;
+  -moz-animation: 6s rot-label ease-in-out infinite;
+  -o-animation: 6s rot-label ease-in-out infinite;
+  animation: 6s rot-label ease-in-out infinite;
+}
+.wrapperBack input {
+  position: absolute;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+
 #s:checked {
   background: red;
 }
@@ -375,6 +436,16 @@ button#playPauseButton {
   background: red;
 }
 #dot1:checked ~ .toggleDot {
+  border: 0.1rem solid #008000;
+  background: #00b300;
+  box-shadow: 0 0 0.2rem 0.1rem #008000 inset, 0 0 0.2rem 0.1rem #008000;
+  left: -0.4rem;
+}
+
+#back1:checked {
+  background: red;
+}
+#back1:checked ~ .toggleBack {
   border: 0.1rem solid #008000;
   background: #00b300;
   box-shadow: 0 0 0.2rem 0.1rem #008000 inset, 0 0 0.2rem 0.1rem #008000;
@@ -401,6 +472,16 @@ button#playPauseButton {
   left: 7.6rem;
 }
 
+#back3:checked {
+  background: red;
+}
+#back3:checked ~ .toggleBack {
+  border: 0.1rem solid #ff0000;
+  background: #ff3333;
+  box-shadow: 0 0 0.2rem 0.1rem #ff0000 inset, 0 0 0.2rem 0.1rem #ff0000;
+  left: 7.6rem;
+}
+
 #m, #maybe-lbl {
   left: 33.3333333333%;
 }
@@ -409,11 +490,19 @@ button#playPauseButton {
   left: 33.3333333333%;
 }
 
+#dot3, #maybe-lbl-back {
+  left: 33.3333333333%;
+}
+
 #l, #no-lbl {
   left: 66.6666666667%;
 }
 
 #dot3, #no-lbl-dot {
+  left: 66.6666666667%;
+}
+
+#back3, #no-lbl-back {
   left: 66.6666666667%;
 }
 
@@ -431,6 +520,13 @@ button#playPauseButton {
   animation-delay: 2s;
 }
 
+#maybe-lbl-back {
+  -webkit-animation-delay: 2s;
+  -o-animation-delay: 2s;
+  -moz-animation-delay: 2s;
+  animation-delay: 2s;
+}
+
 #no-lbl {
   -webkit-animation-delay: 4s;
   -o-animation-delay: 4s;
@@ -439,6 +535,13 @@ button#playPauseButton {
 }
 
 #no-lbl-dot {
+  -webkit-animation-delay: 4s;
+  -o-animation-delay: 4s;
+  -moz-animation-delay: 4s;
+  animation-delay: 4s;
+}
+
+#no-lbl-back {
   -webkit-animation-delay: 4s;
   -o-animation-delay: 4s;
   -moz-animation-delay: 4s;
