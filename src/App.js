@@ -74,11 +74,11 @@ export default class App extends React.Component {
   _setBackground(target) {
     let backId = target.currentTarget.id
     if (backId === 'back1') {
-      document.querySelector('.mainPlace').style.backgroundImage = "url('../assets/back2.png')";
+      document.querySelector('.mainPlace').style.backgroundImage = "url('../dist/assets/back2.png')";
     } else if (backId === 'back3') {
-      document.querySelector('.mainPlace').style.backgroundImage = "url('../assets/back3.jpg')";
+      document.querySelector('.mainPlace').style.backgroundImage = "url('../dist/assets/back3.jpg')";
     } else {
-      document.querySelector('.mainPlace').style.backgroundImage = "url('../assets/snake.jpg')";
+      document.querySelector('.mainPlace').style.backgroundImage = "url('../dist/assets/snake.jpg')";
     }
   }
 

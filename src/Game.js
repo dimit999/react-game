@@ -52,15 +52,15 @@ class Game extends React.Component {
       let dotsList = document.querySelectorAll('.snake-dot')
       if (dot === 'Dot1') {
         dotsList.forEach((dot) => {
-          dot.style.backgroundImage = "url('../assets/dot1.svg')";
+          dot.style.backgroundImage = "url('../dist/assets/dot1.svg')";
         })
       } else if (dot === 'Dot2') {
         dotsList.forEach((dot) => {
-          dot.style.backgroundImage = "url('../assets/dot2.svg')";
+          dot.style.backgroundImage = "url('../dist/assets/dot2.svg')";
         })
       } else {
         dotsList.forEach((dot) => {
-          dot.style.backgroundImage = "url('../assets/dot3.svg')";
+          dot.style.backgroundImage = "url('../dist/assets/dot3.svg')";
         })
       }
     }
